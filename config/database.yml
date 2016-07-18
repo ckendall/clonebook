@@ -83,3 +83,5 @@ production:
   database: Clonebook_production
   username: Clonebook
   password: <%= ENV['Clonebook_DATABASE_PASSWORD'] %>
+  secret_key_base: <%= ENV['SECRET_KEY_BASE']%>
+
