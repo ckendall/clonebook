@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resource :users
+  resource :posts do
+    resources :comments
+  end
+  resource :friendships, only: [:create, :destroy]
 
   resource :sessions, only: [:new, :create]
 

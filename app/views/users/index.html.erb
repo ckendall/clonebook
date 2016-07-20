@@ -1,0 +1,21 @@
+<h1>Im the user home</h1>
+<div class="form">
+	<%= form_for(Post.new) do |f| %>
+
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+
+		<%= f.submit value: "Update" %>
+	<% end %>
+</div>
+
+
+<div class="user">
+	<% if @posts %>
+		<% @posts.each do |post|%>
+			<ul>
+				<%= post.body %>
+			</ul>
+		<% end %>
+	<% end %>
+</div>
