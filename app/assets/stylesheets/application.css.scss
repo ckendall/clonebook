@@ -16,3 +16,38 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+#registration {
+   background: linear-gradient(to bottom right, #ffffe6, #ff66ff);
+   height: 70%;
+   width: 40%;
+   margin: 0 auto;
+   margin-top: 25%;
+   padding: 20px;
+   border: solid;
+   border-color: #0d0d0d;
+   border-radius: 25px;
+ }
+
+  .sign-in-btn {
+    text-align: center;
+     border: none;
+     color: #ffffe6;
+     text-decoration: none;
+     font-size: 14px;
+     box-shadow: 2px 2px 1px #888888;
+ }
+
+ .registration {
+  margin-top: 25px;
+  padding: 25px;
+  width: 450px;
+  background-color: #d9534f;
+  height: 600px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+
+

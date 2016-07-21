@@ -18,7 +18,6 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 
 		if @post.save
-			flash[:success] = "You made a new post"
 			render "users/index"
 		else
 			flash[:error] = @post.errors.full_messages.to_sentence
