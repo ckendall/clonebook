@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resource :users
   resource :posts do
-    resources :comments
+    resource :comments
   end
   resource :friendships, only: [:create, :destroy]
 

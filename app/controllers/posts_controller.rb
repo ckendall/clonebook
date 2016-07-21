@@ -4,18 +4,16 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		
 		@post = Post.new
 	end
 
 	def show
+		@post = Post.find(params[:format])
+		@comment = Comment.all
 	end
 
 
 	def create
-		puts "*" *80
-		puts params
-		puts "*"*80
 		@posts = Post.all
 		@post = Post.new(post_params)
 

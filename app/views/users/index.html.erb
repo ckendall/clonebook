@@ -2,7 +2,6 @@
 <div class="form">
 	<%= form_for(Post.new) do |f| %>
 
-		<%= f.label :body %>
 		<%= f.text_area :body %>
 
 		<%= f.submit value: "Update" %>
@@ -14,7 +13,8 @@
 	<% if @posts %>
 		<% @posts.each do |post|%>
 			<ul>
-				<%= post.body %>
+				<%= link_to post.body, posts_path(post) %>
+				
 			</ul>
 		<% end %>
 	<% end %>

@@ -13,6 +13,7 @@
 	<% end %>
 	<% if session[:id] %>
 		<li class="nav navbar-right"><%= link_to "Sign out", logout_path, method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
+		<li class="nav navbar-left"><%= link_to "Home", root_path %></li>
 	<% end %>
 </ul>
 

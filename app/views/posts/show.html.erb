@@ -1,0 +1,14 @@
+<%= @post.body %>
+
+<% if @comment %>
+	<% @comment.each do |comment| %>
+	<%= comment.body %>
+	<% end %>
+<% end %>
+
+<%= form_for :comments, url: posts_comments_path do |f| %>
+
+	<%= f.text_field :body %>
+
+	<%= f.submit value: "Comment" %>
+<% end %>
