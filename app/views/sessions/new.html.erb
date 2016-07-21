@@ -11,10 +11,11 @@
       <%= f.submit "Sign in", class: "btn btn-primary sign-in-btn" %>
       
         <%= link_to "Sign up", new_users_path, class: "register-link sign-in-btn btn btn-primary" %>
-
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+        <%if flash%>
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        <% end %>
     <% end %>
   </div>
 </div>
