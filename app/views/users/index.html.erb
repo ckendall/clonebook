@@ -1,2 +1,9 @@
-
-
+<div class="list-of-users">
+	<% @users.each do |user| %>
+		<% if user.id == session[:id] %>
+			<% next %>
+		<% else %>
+			<%= user.name %>
+		<% end %>
+	<% end %>
+</div>

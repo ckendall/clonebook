@@ -1,4 +1,4 @@
-<h1>Welcome </h1>
+<h1>Welcome <%= @user.name %> </h1>
 <div class="form">
 	<%= form_for(Post.new) do |f| %>
 
@@ -9,13 +9,18 @@
 </div>
 
 
-<div class="user">
+<div class="user-posts">
 	<% if @posts %>
 		<% @posts.each do |post|%>
 			<ul>
+				<%= post.user.name %>
 				<%= link_to post.body, post_path(post) %>
 				
 			</ul>
 		<% end %>
 	<% end %>
+</div>
+
+<div class="user-friends">
+	<%= link_to "Here are some potential friends", users_path%>
 </div>

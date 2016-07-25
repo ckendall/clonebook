@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:sessions][:email].downcase)
     if user && user.authenticate(params[:sessions][:password])
       session[:id] = user.id
-      redirect_to root_path
+      redirect_to posts_path
     else
       flash[:error] = "Invalid Password and Email"
       render 'sessions/new'

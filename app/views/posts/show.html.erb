@@ -8,9 +8,11 @@
 	<%= f.submit value: "Comment" %>
 <% end %>
 
-
-<% if @comments %>
-	<% @comments.each do |comment| %>
-	<%= comment.body %>
-	<% end %>
-<%  end %>
+<div class="comments">
+	<% if @comments %>
+		<% @comments.each do |comment| %>
+		<%= comment.user.name%>:
+		<%= comment.body %>
+		<% end %>
+	<%  end %>
+</div>

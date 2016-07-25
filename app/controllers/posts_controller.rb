@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
 		@posts = Post.all
+		@user = User.find(session[:id])
 	end
 
 	def new
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
 	def create
 
 		@post = Post.new(post_params)
+		@post.user_id = session[:id]
 
 		if @post.save
 			redirect_to posts_path
