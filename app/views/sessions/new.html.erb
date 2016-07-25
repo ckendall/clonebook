@@ -1,6 +1,6 @@
-<div class="rows">
-  <div class="col-md-6 col-md-offset-3 col-xs-3 sign-in">
-    <%= form_for :sessions, :html => {id:"registration"}, url: "/sessions" do |f| %>
+<div class="registration">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :sessions, url: "/sessions" do |f| %>
 
       <%= f.label :email %>
       <%= f.email_field :email %>
@@ -10,10 +10,10 @@
 
       <%= f.submit "Sign in", class: "btn btn-primary sign-in-btn" %>
       
-        <%= link_to "Sign up", new_user_path, class: "register-link sign-in-btn btn btn-primary" %>
-        <%if flash%>
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <%= link_to "Sign up", new_user_path, class: "register-link sign-in-btn btn btn-primary" %>
+      <%if flash%>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
           <% end %>
         <% end %>
     <% end %>
