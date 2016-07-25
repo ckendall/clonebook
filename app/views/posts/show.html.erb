@@ -1,14 +1,16 @@
-<%= @post.body %>
+<h1><%= @post.body %></h1>
 
-<% if @comment %>
-	<% @comment.each do |comment| %>
-	<%= comment.body %>
-	<% end %>
-<% end %>
 
-<%= form_for :comments, url: posts_comments_path do |f| %>
+<%= form_for [@post, @comment] do |f| %>
 
 	<%= f.text_field :body %>
 
 	<%= f.submit value: "Comment" %>
 <% end %>
+
+
+<% if @comments %>
+	<% @comments.each do |comment| %>
+	<%= comment.body %>
+	<% end %>
+<%  end %>

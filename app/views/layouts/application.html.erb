@@ -10,10 +10,10 @@
 <body>
 <ul class='nav nav-pill'>
 	<% if session[:id] == nil %>
-	  	<li class="nav navbar-right"><%= link_to "Sign in", new_sessions_path%></li>
+	  	<li class="nav navbar-right btn"><%= link_to "Sign in", new_session_path%></li>
 	<% end %>
 	<% if session[:id] %>
-		<li class="nav navbar-right"><%= link_to "Sign out", logout_path, method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
+		<li class="nav navbar-right btn"><%= link_to "Sign out", logout_path, method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
 		<li class="nav navbar-left"><%= link_to "Home", root_path %></li>
 	<% end %>
 </ul>

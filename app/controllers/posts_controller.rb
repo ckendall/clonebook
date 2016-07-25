@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Posts.all
+		@posts = Post.all
 	end
 
 	def new
@@ -8,17 +8,18 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:format])
-		@comment = Comment.all
+		@post = Post.find(params[:id])
+		@comment = @post.comments.build
+		@comments = Comment.where(post_id: @post.id)
 	end
 
 
 	def create
-		@posts = Post.all
+
 		@post = Post.new(post_params)
 
 		if @post.save
-			render "users/index"
+			redirect_to posts_path
 		else
 			flash[:error] = @post.errors.full_messages.to_sentence
 		end

@@ -2,7 +2,8 @@ class HomeController < ApplicationController
 	def index
 		if session[:id]
 			@posts = Post.all 
-			render "users/index"
+
+			redirect_to posts_path
 		else
 			render "home/index"
 		end

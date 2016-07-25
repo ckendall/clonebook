@@ -9,7 +9,13 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+
+
+		@post = Post.find(params[:post_id])
+
 		@comment = Comment.new(comment_params)
+		@comment.user_id = session[:id]
+		@comment.post_id = @post.id
 
 		if @comment.save
 			redirect_to root_path
@@ -22,7 +28,7 @@ class CommentsController < ApplicationController
 	private
 
 	  	def comment_params
-	    	params.require(:comments).permit(:body)
+	    	params.require(:comment).permit(:body)
 	  	end
 
 end

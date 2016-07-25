@@ -1,0 +1,21 @@
+<h1>Welcome </h1>
+<div class="form">
+	<%= form_for(Post.new) do |f| %>
+
+		<%= f.text_area :body %>
+
+		<%= f.submit value: "Update" %>
+	<% end %>
+</div>
+
+
+<div class="user">
+	<% if @posts %>
+		<% @posts.each do |post|%>
+			<ul>
+				<%= link_to post.body, post_path(post) %>
+				
+			</ul>
+		<% end %>
+	<% end %>
+</div>
