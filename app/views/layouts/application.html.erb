@@ -8,13 +8,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-<ul class='nav nav-pill'>
+<ul class='nav nav-pill navbar'>
 	<% if session[:id] == nil %>
-	  	<li class="nav navbar-right btn"><%= link_to "Sign in", new_session_path%></li>
+	  	<li class="navbar-right"><%= link_to "Sign in", new_session_path, class: "right-link"%></li>
 	<% end %>
 	<% if session[:id] %>
-		<li class="nav navbar-right btn"><%= link_to "Sign out", logout_path, method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
-		<li class="nav navbar-left"><%= link_to "Home", posts_path %></li>
+		<li class="right-side navbar-right"><%= link_to "Sign out", logout_path, class: "right-link", method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
+		<li class="navbar-left"><%= link_to "Home", posts_path, class: "left-link" %></li>
+
 	<% end %>
 </ul>
 
