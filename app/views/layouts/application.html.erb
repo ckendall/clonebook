@@ -8,18 +8,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-<ul class='nav nav-pill navbar'>
-	<% if session[:id] == nil %>
-	  	<li class="navbar-right"><%= link_to "Sign in", new_session_path, class: "right-link"%></li>
-	<% end %>
-	<% if session[:id] %>
-		<li class="right-side navbar-right"><%= link_to "Sign out", logout_path, class: "right-link", method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
-		<li class="navbar-left"><%= link_to "Home", posts_path, class: "left-link" %></li>
+	<ul class='nav nav-pill navbar'>
+		<% if session[:id] == nil %>
+		  	<li class="navbar-right"><%= link_to "Sign in", new_session_path, class: "right-link"%></li>
+		<% end %>
+		<% if session[:id] %>
+			<li class="right-side navbar-right"><%= link_to "Sign out", logout_path, class: "right-link", method: :delete, data: {confirm: 'Are you sure you want to log out?'} %></li>
+			<li class="navbar-left"><%= link_to "Home", posts_path, class: "left-link" %></li>
 
-	<% end %>
-</ul>
+		<% end %>
+	</ul>
 
 <%= yield %>
+
+		<ul class='footer navbar'>
+			<li class='center'><%= link_to image_tag("images.png"), "http://github.com/ckendall", :target => "_blank", class: "image" %></li>
+		</ul>
 
 </body>
 </html>

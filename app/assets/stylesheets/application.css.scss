@@ -29,7 +29,7 @@
   margin: 0 auto;
   padding: 25px;
   width: 290px;
-  background-color: #d9534f;
+  background-color: #476b6b;
   height: 300px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -64,6 +64,28 @@
 
 .right-side {
   padding-top: 0px;
+}
+
+.footer {
+  margin-bottom: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.image {
+  margin-left: 45%;
+}
+
+img {
+  margin-top: 10px;
+  height: 30px;
+  width: 30px;
 }
 
 
