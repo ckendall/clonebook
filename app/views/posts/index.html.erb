@@ -11,7 +11,7 @@
 
 <div class="user-posts">
 	<% if @posts %>
-		<% @posts.each do |post|%>
+		<% @posts.each do |post| %>
 			<ul>
 				<%= post.user.name %>
 				<%= link_to post.body, post_path(post) %>
