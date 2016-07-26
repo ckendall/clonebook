@@ -16,6 +16,15 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+html {
+  position: relative;
+  min-height: 100%
+}
+
+body {
+  margin: 0 0 100px;
+}
+
 .sign-in-btn {
     text-align: center;
      border: none;
@@ -67,11 +76,9 @@
 }
 
 .footer {
-  margin-bottom: 0;
   width: 100%;
   bottom: 0;
-  left: 0;
-  position: fixed;
+  position: absolute;
 }
 
 ul {
