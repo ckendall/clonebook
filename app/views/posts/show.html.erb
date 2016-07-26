@@ -1,18 +1,27 @@
-<h1><%= @post.body %></h1>
+<h1 class="welcome-sign"><%= @post.body %></h1>
 
+<div class="container">
+	<div class="grouping">
+		<%= form_for [@post, @comment] do |f| %>
 
-<%= form_for [@post, @comment] do |f| %>
+			<%= f.text_field :body %>
 
-	<%= f.text_field :body %>
-
-	<%= f.submit value: "Comment" %>
-<% end %>
-
-<div class="comments">
-	<% if @comments %>
-		<% @comments.each do |comment| %>
-		<%= comment.user.name%>:
-		<%= comment.body %>
+			<%= f.submit value: "Comment", class: "btn btn-primary" %>
 		<% end %>
-	<%  end %>
+		<div class="comments">
+			<% if @comments %>
+				<% @comments.each do |comment| %>
+				<%= comment.user.name%>:
+				<%= comment.body %>
+				<% end %>
+			<%  end %>
+		</div>
+	</div>
+
+	<div class='user-friends'>
+	friends
+	</div>
+	<div class="advertise">
+		i am an advertisment
+	</div>
 </div>

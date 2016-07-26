@@ -1,26 +1,35 @@
-<h1>Welcome <%= @user.name %> </h1>
-<div class="form">
-	<%= form_for(Post.new) do |f| %>
+<h1 class="welcome-sign">Welcome <%= @user.name %> </h1>
 
-		<%= f.text_area :body %>
+<div class="container">
+	<div class="grouping">
+		<div class="form">
+			<%= form_for(Post.new) do |f| %>
 
-		<%= f.submit value: "Update", class: "btn btn-primary update" %>
-	<% end %>
-</div>
+				<%= f.text_area :body %>
+
+				<%= f.submit value: "Update", class: "btn btn-primary update" %>
+			<% end %>
+		</div>
 
 
-<div class="user-posts">
-	<% if @posts %>
-		<% @posts.each do |post| %>
-			<ul>
-				<%= post.user.name %>
-				<%= link_to post.body, post_path(post) %>
-				
-			</ul>
-		<% end %>
-	<% end %>
-</div>
+		<div class="user-posts">
+			<% if @posts %>
+				<% @posts.each do |post| %>
+					<ul>
+						<%= post.user.name %>
+						<%= link_to post.body, post_path(post) %>
+						
+					</ul>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 
-<div class="user-friends">
-	<%= link_to "Here are some potential friends", users_path%>
+	<div class="user-friends">
+		<%= link_to "Here are some potential friends", users_path%>
+	</div>
+
+	<div class="advertise">
+		<p>im an advertisment</p>
+	</div>
 </div>
