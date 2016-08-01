@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root 'sessions#new'
 
+  resources :friend_requests
   resources :users
   resources :posts do 
     resources :comments
   end
-  resources :friendships, only: [:create, :destroy]
+  resources :friendships, only: [:index, :destroy ]
 
   resources :sessions, only: [:new, :create]
 
