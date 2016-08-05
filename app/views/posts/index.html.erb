@@ -25,7 +25,7 @@
 					<% end %>
 				<% end %>
 			<% end %>
-			
+
 		</div>
 	</div>
 
@@ -45,15 +45,6 @@
 			<%= incoming_friend_request.user.name %> 
 			<%= link_to "accept", friend_request_path(id: incoming_friend_request.id),method: "put" %>
 			<%= link_to "decline", friend_request_path(id: incoming_friend_request.id),method: :delete %>
-		<% end %>
-	<% end %>
-<% end %>
-
-
-<% if @outgoing %>
-	<% @outgoing.each do |outgoing_friend_request| %>
-		<% if outgoing_friend_request.user != nil %>
-			<p>outgoing <%= outgoing_friend_request.user.name %></p>
 		<% end %>
 	<% end %>
 <% end %>
