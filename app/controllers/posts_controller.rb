@@ -1,7 +1,15 @@
 class PostsController < ApplicationController
+
+	include SessionsHelper
+
+
 	def index
 		@posts = Post.all
 		@user = User.find(session[:id])
+		
+		@incoming = FriendRequest.where(friend: current_user)
+	
+		@outgoing = current_user.friend_requests
 	end
 
 	def new
