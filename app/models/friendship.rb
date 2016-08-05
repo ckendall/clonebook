@@ -12,7 +12,7 @@ class Friendship < ActiveRecord::Base
 	private
 
 	def create_inverse_relationship
-		friend.frienships.create(friend: user)
+		friend.friendships.create(friend: user)
 	end
 
 	def destroy_inverse_relationship
@@ -21,9 +21,7 @@ class Friendship < ActiveRecord::Base
 	end
 
 
-	private
-
-	  def not_self
-	  	errors.add(:friend, "Can't be equal to user") if user == friend
-	  end
+	def not_self
+		errors.add(:friend, "Can't be equal to user") if user == friend
+	end
 end
