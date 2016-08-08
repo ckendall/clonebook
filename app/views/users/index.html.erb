@@ -4,7 +4,7 @@
 			<% next %>
 		<% else %>
 			<%= user.name %>
-			<%= link_to "Add Friend", friend_requests_path(user: user, friend_id: user.id), method: :post %>
+			<p><%= link_to "Add Friend", friend_requests_path(user: user, friend_id: user.id), method: :post %></p>
             
 		<% end %>
 	<% end %>
