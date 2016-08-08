@@ -13,19 +13,20 @@
 
 
 		<div class="user-posts">
-
+			<% @posts.each do |my_post|%>
+				<ul>
+					<%= my_post.user.name %>
+					<p><%= link_to my_post.body, post_path(my_post) %></p>
+				</ul>
+			<% end %>
 			<% if @friends %>
 				<% @friends.each do |friend| %>
 					<% friend.user.posts.each do |post| %>
-						<% @posts.each do |my_post|%>
 							<ul>
-								<%= my_post.user.name %>
-								<p><%= link_to my_post.body, post_path(my_post) %></p>
 								<%= post.user.name %>
 								<p><%= link_to post.body, post_path(post) %></p>
 								
 							</ul>
-						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
