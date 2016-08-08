@@ -1,4 +1,6 @@
-class FriendshipControllers < ApplicationController
+class FriendshipsController < ApplicationController
+	include SessionsHelper
+
 	before_action :set_friend, only: :destroy
 
 	def index
@@ -6,8 +8,10 @@ class FriendshipControllers < ApplicationController
 	end
 
 	def destroy
-		current_user.remove_friend(@friend)
-		head :no_content
+		friend = current_user.friendships.find_by(id: params[:id])
+
+		friend.destroy
+		redirect_to posts_path
 	end
 
 	private

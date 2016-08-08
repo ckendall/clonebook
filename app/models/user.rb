@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	include SessionsHelper
+
 	has_many :posts
 	has_many :friendships, :dependent => :destroy
 	has_many :friends, :through => :friendships
@@ -16,7 +18,4 @@ class User < ActiveRecord::Base
 
 	validates_confirmation_of :password
 
-	def remove_friend(friend)
-		current_user.friends.destroy(friend)
-	end
 end
