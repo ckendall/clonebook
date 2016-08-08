@@ -17,11 +17,15 @@
 			<% if @friends %>
 				<% @friends.each do |friend| %>
 					<% friend.user.posts.each do |post| %>
-						<ul>
-							<%= post.user.name %>
-							<%= link_to post.body, post_path(post) %>
-							
-						</ul>
+						<% @posts.each do |my_post|%>
+							<ul>
+								<%= my_post.user.name %>
+								<p><%= link_to my_post.body, post_path(my_post) %></p>
+								<%= post.user.name %>
+								<p><%= link_to post.body, post_path(post) %></p>
+								
+							</ul>
+						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
