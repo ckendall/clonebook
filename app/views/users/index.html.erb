@@ -3,9 +3,15 @@
 		<% if user.id == session[:id] %>
 			<% next %>
 		<% else %>
-			<%= user.name %>
-			<p><%= link_to "Add Friend", friend_requests_path(user: user, friend_id: user.id), method: :post %></p>
-            
+			<% if current_user.friend_requests.exists?(friend_id: user.id) %>
+				<p> You have sent a request to <%= user.name %></p>
+			<% elsif user.friends.include? current_user%>
+				<p> You are friends with <%= user.name %></p>
+
+			<% else %>
+				<%= user.name %>
+				<p><%= link_to "Add Friend", friend_requests_path(user: user, friend_id: user.id), method: :post %></p>
+            <% end %>
 		<% end %>
 	<% end %>
 </div>
