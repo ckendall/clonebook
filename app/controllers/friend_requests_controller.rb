@@ -37,7 +37,8 @@ class FriendRequestsController < ApplicationController
 	end
 
 	def post_attributes
-		@posts = Post.all
+		ids_for_posts = current_user.friends.pluck(:id) << current_user.id
+		@posts = Post.where(user_id: ids_for_posts)
 		@user = User.find(session[:id])
 	end
 end
