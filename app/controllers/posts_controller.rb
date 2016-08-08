@@ -4,8 +4,8 @@ class PostsController < ApplicationController
 
 
 	def index
-		@friends = Friendship.where(friend_id: current_user.id)
-		@posts = Post.where(user_id: current_user)
+		ids_for_posts = current_user.friends.pluck(:id) << current_user.id
+		@posts = Post.where(user_id: ids_for_posts)
 		@user = current_user
 		
 		@incoming = FriendRequest.where(friend: current_user)
