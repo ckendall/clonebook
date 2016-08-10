@@ -8,9 +8,8 @@ class FriendshipsController < ApplicationController
 	end
 
 	def destroy
-		friend = current_user.friendships.find_by(id: params[:id])
-
-		friend.destroy
+		friendship = Friendship.find_by(friend_id: @friend.id)
+		friendship.destroy
 		redirect_to posts_path
 	end
 
