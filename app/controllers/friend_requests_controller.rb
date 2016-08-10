@@ -1,17 +1,17 @@
 class FriendRequestsController < ApplicationController
 	include SessionsHelper
 
-	before_action :set_friend_request, except: [:index, :create]
+	before_action :set_friend_request, except: [:create]
 
 	def create
-
+		@users = User.all
 		friend = User.find(params[:friend_id])
 
 		@friend_request = current_user.friend_requests.new(friend: friend)
 
 		if @friend_request.save
 			post_attributes
-			render "posts/index", status: :created, location: @friend_request
+			render "users/index", status: :created, location: @friend_request
 		else
 			render json: @friend_request.errors, status: unprocessable_entity
 		end
